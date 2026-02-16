@@ -221,7 +221,8 @@ export default function Orb({
 
     function resize() {
       if (!container) return;
-      const dpr = window.devicePixelRatio || 1;
+      // Cap device pixel ratio to reduce memory usage on high-DPI displays
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const width = container.clientWidth;
       const height = container.clientHeight;
       renderer.setSize(width * dpr, height * dpr);

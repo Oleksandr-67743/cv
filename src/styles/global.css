@@ -1,1 +1,121 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg-primary: #050508;
+  --color-bg-secondary: #0a0a12;
+  --color-bg-card: rgba(15, 15, 25, 0.6);
+  --color-bg-card-hover: rgba(20, 20, 35, 0.8);
+
+  --color-accent-purple: #9945ff;
+  --color-accent-cyan: #14f195;
+  --color-accent-blue: #4cc9f0;
+  --color-accent-pink: #f72585;
+
+  --color-text-primary: #e8e8f0;
+  --color-text-secondary: #9898b0;
+  --color-text-muted: #5e5e78;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-accent: rgba(153, 69, 255, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(153, 69, 255, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(153, 69, 255, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(153, 69, 255, 0.6);
+}
+
+@utility glass-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+}
+
+@utility glass-card-hover {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  &:hover {
+    background: var(--color-bg-card-hover);
+    border-color: var(--color-border-accent);
+    box-shadow: 0 0 30px rgba(153, 69, 255, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+@utility gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility gradient-text-pink {
+  background: linear-gradient(135deg, var(--color-accent-pink), var(--color-accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility section-padding {
+  padding-left: max(1.5rem, calc((100vw - 1200px) / 2));
+  padding-right: max(1.5rem, calc((100vw - 1200px) / 2));
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@utility timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-accent-purple) 10%,
+    var(--color-accent-cyan) 90%,
+    transparent 100%
+  );
+}

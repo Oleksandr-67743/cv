@@ -1,1 +1,1 @@
-export { default } from "./blut-text";
+export { default } from './blur-text';
