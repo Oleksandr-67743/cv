@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { motion } from 'motion/react';
 import SectionHeading from '@/components/section-heading';
 import ProjectCard from '@/components/project-card';
 import { PROJECTS } from '@/constants/personal-data';
@@ -12,16 +11,14 @@ const ExperienceSection: React.FC = () => {
       <div className="absolute top-20 -left-32 w-64 h-64 bg-accent-purple/5 rounded-full blur-[60px] pointer-events-none" />
       <div className="absolute bottom-20 -right-32 w-64 h-64 bg-accent-cyan/5 rounded-full blur-[60px] pointer-events-none" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         <SectionHeading title="Experience" subtitle="Projects I've contributed to as a Full-Stack Web3 Engineer." />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center gap-6 !mb-12 !p-4 rounded-xl
-            bg-white/[0.02] border border-white/[0.05]"
+        <div
+          className="flex flex-wrap items-center gap-6 mb-12 p-4 rounded-xl
+            bg-white/[0.02] border border-white/[0.05]
+            animate-fade-in-up"
+          style={{ animationDelay: '0.1s' }}
         >
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold gradient-text">{PROJECTS.length}</span>
@@ -37,9 +34,9 @@ const ExperienceSection: React.FC = () => {
             <span className="text-2xl font-bold gradient-text">Web3</span>
             <span className="text-xs text-text-muted uppercase tracking-wider">Focus</span>
           </div>
-        </motion.div>
+        </div>
 
-        <div className="relative !pl-5 md:!pl-6">
+        <div className="relative pl-5 md:pl-6">
           <div className="timeline-line" />
 
           {PROJECTS.map((project, index) => (

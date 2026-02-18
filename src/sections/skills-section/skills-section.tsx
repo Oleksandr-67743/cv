@@ -23,11 +23,8 @@ const ICON_COLORS: Record<string, string> = {
 
 const SkillsSection: React.FC = () => {
   return (
-    <section
-      id="skills"
-      className="section-padding relative overflow-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-12 md:py-16 lg:py-20 w-full flex justify-center items-center"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section id="skills" className="section-padding relative overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         <SectionHeading title="Tech Stack" subtitle="Technologies and tools I work with on a daily basis." />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5">
@@ -47,19 +44,19 @@ const SkillsSection: React.FC = () => {
                   ${categoryIndex === 0 ? 'lg:col-span-2' : ''}`}
               >
                 <div className="relative z-10">
-                  <div className="flex items-center gap-3 !mb-5 !px-6 !pt-6">
+                  <div className="flex items-center gap-3 mb-5 px-6 pt-6">
                     <div
                       className={`w-9 h-9 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center ${iconColor}`}
                     >
                       <Icon size={18} />
                     </div>
                     <h3 className="text-base font-semibold text-text-primary tracking-wide">{category.title}</h3>
-                    <span className="ml-auto text-[11px] font-mono text-text-muted bg-white/[0.04] !px-2 !py-0.5 rounded-md">
+                    <span className="ml-auto text-[11px] font-mono text-text-muted bg-white/[0.04] px-2 py-0.5 rounded-md">
                       {category.skills.length}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 !px-6 !pb-6">
+                  <div className="flex flex-wrap gap-2 px-6 pb-6">
                     {category.skills.map((skill, skillIndex) => (
                       <SkillBadge key={skill} name={skill} index={skillIndex} />
                     ))}
